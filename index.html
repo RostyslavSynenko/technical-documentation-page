@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Microsoft TypeScript</title>
+  <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+  <nav id="navbar">
+    <header>TS Documentation</header>
+    <div class="links">
+      <a class="nav-link" href="#Introduction">Introduction</a><br>
+      <a class="nav-link" href="#History">History</a><br>
+      <a class="nav-link" href="#Language_design">Language design</a><br>
+      <a class="nav-link" href="#Language_features">Language features</a><br>
+      <a class="nav-link" href="#Development_tools">Development tools</a><br>
+      <a class="nav-link" href="#References">References</a>
+    </div>
+  </nav>
+  <main id="main-doc">
+    <section id="Introduction" class="main-section">
+      <header>Introduction</header>
+      <p>
+        Microsoft TypeScript is an open-source programming language developed and maintained by Microsoft. 
+        It is a strict syntactical superset of JavaScript, and adds optional static typing to the language.
+      </p>
+      <p>
+        TypeScript is designed for development of large applications and transcompiles to JavaScript. 
+        As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. 
+        TypeScript may be used to develop JavaScript applications for both client-side and server-side (Node.js) execution.
+      </p>
+      <p>
+        There are multiple options available for transcompilation. 
+        Either the default TypeScript Checker can be used, or the Babel compiler can be invoked to convert TypeScript to JavaScript.
+      </p>
+      <p>
+        TypeScript supports definition files that can contain type information of existing JavaScript libraries, much like C++ header files can describe the structure of existing object files. 
+        This enables other programs to use the values defined in the files as if they were statically typed TypeScript entities. There are third-party header files for popular libraries such as jQuery, MongoDB, and D3.js. 
+        TypeScript headers for the Node.js basic modules are also available, allowing development of Node.js programs within TypeScript.
+      </p>
+      <p>
+        The TypeScript compiler is itself written in TypeScript and compiled to JavaScript. It is licensed under the Apache 2.0 License.
+      </p>
+      <p>
+        TypeScript is included as a first-class programming language in Microsoft Visual Studio 2013 Update 2 and later, beside C# and other Microsoft languages. 
+        An official extension allows Visual Studio 2012 to support TypeScript as well.
+      </p>
+      <p>
+        Anders Hejlsberg, lead architect of C# and creator of Delphi and Turbo Pascal, has worked on the development of TypeScript.
+      </p>
+    </section>
+    <section id="History" class="main-section">
+      <header>History</header>
+      <p>
+        TypeScript was first made public in October 2012 (at version 0.8), after two years of internal development at Microsoft. 
+        Soon after the announcement, Miguel de Icaza praised the language itself, but criticized the lack of mature IDE support apart from Microsoft Visual Studio, which was not available on Linux and OS X at that time. 
+        Today there is support in other IDEs, particularly in Eclipse, via a plug-in contributed by Palantir Technologies. 
+        Various text editors, including Emacs, Vim, Sublime, Webstorm, Atom and Microsoft's own Visual Studio Code also support TypeScript.
+      </p>
+      <p>
+        TypeScript 0.9, released in 2013, added support for generics. 
+        TypeScript 1.0 was released at Microsoft's Build developer conference in 2014. 
+        Visual Studio 2013 Update 2 provides built-in support for TypeScript.
+      </p>
+      <p>
+        In July 2014, the development team announced a new TypeScript compiler, claiming 5× performance gains. Simultaneously, the source code, which was initially hosted on CodePlex, was moved to GitHub.
+      </p>
+      <p>
+        On 22 September 2016, TypeScript 2.0 was released; it introduced several features, including the ability for programmers to optionally prevent variables from being assigned null values, sometimes referred to as the billion-dollar mistake.
+      </p>
+    </section>
+    <section id="Language_design" class="main-section">
+      <header>Language design</header>
+      <p>
+        TypeScript originated from the shortcomings of JavaScript for the development of large-scale applications both at Microsoft and among their external customers. 
+        Challenges with dealing with complex JavaScript code led to demand for custom tooling to ease developing of components in the language.
+      </p>
+      <p>
+        TypeScript developers sought a solution that would not break compatibility with the standard and its cross-platform support. 
+        Knowing that the current ECMAScript standard proposal promised future support for class-based programming, TypeScript was based on that proposal. 
+        That led to a JavaScript compiler with a set of syntactical language extensions, a superset based on the proposal, that transforms the extensions into regular JavaScript. 
+        In this sense TypeScript was a preview of what to expect of ECMAScript 2015. 
+        A unique aspect not in the proposal, but added to TypeScript, is optional static typing that enables static language analysis, which facilitates tooling and IDE support.
+      </p>
+      <p>
+        TypeScript adds support for features such as classes, modules, and an arrow function syntax as defined in the ECMAScript 2015 standard.
+      </p>
+    </section>
+    <section id="Language_features" class="main-section">
+      <header>Language features</header>
+      <p>
+        TypeScript is a language extension that adds features to ECMAScript 6. Additional features include:
+        <ul>
+          <li>Type annotations and compile-time type checking</li>
+          <li>Type inference</li>
+          <li>Type erasure</li>
+          <li>Interfaces</li>
+          <li>Enumerated types</li>
+          <li>Generics</li>
+          <li>Namespaces</li>
+          <li>Tuples</li>
+          <li>Async/await</li>
+        </ul>
+      </p>
+      <p>
+        The following features are backported from ECMAScript 2015:
+        <ul>
+          <li>Classes</li>
+          <li>Modules</li>
+          <li>Abbreviated "arrow" syntax for anonymous functions</li>
+          <li>Optional parameters and default parameters</li>
+        </ul>
+      </p>
+      <p>
+        Syntactically, TypeScript is very similar to JScript .NET, another Microsoft implementation of the ECMA-262 language standard that added support for static typing and classical object-oriented language features such as classes, inheritance, interfaces, and namespaces.
+      </p>
+      <h3>Compatibility with JavaScript</h3>
+      <p>
+        TypeScript is a strict superset of ECMAScript 2015, which is itself a superset of ECMAScript 5, commonly referred to as JavaScript. 
+        As such, a JavaScript program is also a valid TypeScript program, and a TypeScript program can seamlessly consume JavaScript. 
+        By default the compiler targets ECMAScript 5, the current prevailing standard, but is also able to generate constructs used in ECMAScript 3 or 2015.
+      </p>
+      <p>
+        With TypeScript, it is possible to use existing JavaScript code, incorporate popular JavaScript libraries, and call TypeScript-generated code from other JavaScript. 
+        Type declarations for these libraries are provided with the source code.
+      </p>
+      <h3>Type annotations</h3>
+      <p>
+        TypeScript provides static typing through type annotations to enable type checking at compile time. 
+        This is optional and can be ignored to use the regular dynamic typing of JavaScript.
+      </p>
+      <div class="container-code">
+        <code>
+          function add(left: number, right: number): number {<br>
+            return left + right;<br>
+          }
+        </code>
+      </div>
+      <p>
+        The annotations for the primitive types are <code>number</code>, <code>boolean</code> and <code>string</code>. Weakly- or dynamically-typed structures are of type <code>any</code>.
+      </p>
+      <p>
+        Type annotations can be exported to a separate declarations file to make type information available for TypeScript scripts using types already compiled into JavaScript. 
+        Annotations can be declared for an existing JavaScript library, as has been done for Node.js and jQuery.
+      </p>
+      <p>
+        The TypeScript compiler makes use of type inference to infer types when types are not given. 
+        For example, the add method in the code above would be inferred as returning a number even if no return type annotation had been provided. 
+        This is based on the static types of left and right being numbers, and the compiler's knowledge that the result of adding two numbers is always a number. 
+        However, explicitly declaring the return type allows the compiler to verify correctness.
+      </p>
+      <p>
+        If no type can be inferred because of lack of declarations, then it defaults to the dynamic any type. 
+        A value of the any type supports the same operations as a value in JavaScript and minimal static type checking is performed for operations on any values.
+      </p>
+      <h4>Declaration files</h4>
+      <p>
+        When a TypeScript script gets compiled there is an option to generate a declaration file (with the extension .d.ts) that functions as an interface to the components in the compiled JavaScript. 
+        In the process the compiler strips away all function and method bodies and preserves only the signatures of the types that are exported. 
+        The resulting declaration file can then be used to describe the exported virtual TypeScript types of a JavaScript library or module when a third-party developer consumes it from TypeScript.
+      </p>
+      <p>
+        The concept of declaration files is analogous to the concept of header file found in C/C++.
+      </p>
+      <div class="container-code">
+        <code>
+          declare namespace arithmetics {<br>
+            add(left: number, right: number): number;<br>
+            subtract(left: number, right: number): number;<br>
+            multiply(left: number, right: number): number;<br>
+            divide(left: number, right: number): number;<br>
+          }
+        </code>
+      </div>
+      <p>
+        Type declaration files can be written by hand for existing JavaScript libraries, as has been done for jQuery and Node.js.
+      </p>
+      <p>
+        Large collections of declaration files for popular JavaScript libraries are hosted on GitHub in DefinitelyTyped.
+      </p>
+      <h3>Classes</h3>
+      <p>
+        TypeScript supports ECMAScript 2015 classes that integrate the optional type annotations support.
+      </p>
+      <div class="container-code">
+        <code>
+          class Person {<br>
+            private name: string;<br>
+            private age: number;<br>
+            private salary: number;<br>
+            <br>
+            constructor(name: string, age: number, salary: number) {<br>
+                this.name = name;<br>
+                this.age = age;<br>
+                this.salary = salary;<br>
+            }<br>
+            <br>
+            toString(): string {<br>
+                return `${this.name} (${this.age}) (${this.salary})`; // As of version 1.4<br>
+            }<br>
+          }
+        </code>
+      </div>
+      <h3>Generics</h3>
+      <p>
+        TypeScript supports generic programming.
+      </p>
+      <div class="container-code">
+        <code>
+          function doSomething<T>(arg: T): T {<br>
+              return arg;<br>
+          }
+        </code>
+      </div>
+      <h3>Modules and namespaces</h3>
+      <p>
+        TypeScript distinguishes between modules and namespaces. 
+        Both features in TypeScript support encapsulation of classes, interfaces, functions and variables into containers. 
+        Namespaces (formerly internal modules) utilize immediately-invoked function expression of JavaScript to encapsulate code, whereas modules (formerly external modules) leverage JavaScript library patterns to do so (AMD or CommonJS).
+      </p>
+    </section>
+    <section id="Development_tools" class="main-section">
+      <header>Development tools</header>
+      <h3>Compiler</h3>
+      <p>
+        The TypeScript compiler, named tsc, is written in TypeScript. 
+        As a result, it can be compiled into regular JavaScript and can then be executed in any JavaScript engine (e.g. a browser). 
+        The compiler package comes bundled with a script host that can execute the compiler. 
+        It is also available as a Node.js package that uses Node.js as a host.
+      </p>
+      <p>
+        There is also an alpha version of a client-side compiler in JavaScript, which executes TypeScript code on the fly, upon page load.
+      </p>
+      <p>
+        The current version of the compiler supports ECMAScript 5 by default. 
+        An option is allowed to target ECMAScript 2015 to make use of language features exclusive to that version (e.g. generators). 
+        Classes, despite being part of the ECMAScript 2015 standard, are available in both modes.
+      </p>
+      <h3>IDE and editor support</h3>
+      <ul>
+        <li>Microsoft provides a plug-in for Visual Studio 2012 and WebMatrix, full integrated support in Visual Studio 2013, Visual Studio 2015, and basic text editor support for Sublime Text, Emacs and Vim.</li>
+        <li>Visual Studio Code is a (mostly) open-source, cross-platform source code editor developed by Microsoft based on Electron. It supports TypeScript in addition to several other languages, and offers features like debugging and intelligent code completion.</li>
+        <li>alm.tools is an open source cloud IDE for TypeScript built using TypeScript, ReactJS and TypeStyle.</li>
+        <li>JetBrains supports TypeScript with code completion, refactoring and debugging in its IDEs built on IntelliJ platform, such as PhpStorm 6, WebStorm 6, and IntelliJ IDEA, as well as their Visual Studio Add-in and extension, ReSharper 8.1.</li>
+        <li>Atom has a TypeScript Plugin by Basarat with support for code completion, navigation, formatting, and fast compilation.</li>
+        <li>The online Cloud9 IDE and Codenvy support TypeScript.</li>
+        <li>A plugin is available for the NetBeans IDE.</li>
+        <li>A plugin is available for the Eclipse IDE (version Kepler)</li>
+        <li>TypEcs is available for the Eclipse IDE.</li>
+        <li>Microsoft provides a TypeScript Plugin for Sublime Text.</li>
+        <li>The Cross Platform Cloud IDE Codeanywhere supports TypeScript.</li>
+        <li>Webclipse An Eclipse plugin designed to develop TypeScript and Angular 2.</li>
+        <li>Angular IDE A standalone IDE available via npm to develop TypeScript and Angular 2 applications, with integrated terminal support.</li>
+        <li>Tide — TypeScript Interactive Development Environment for Emacs.</li>
+        <li>Tsuquyomi - a Vim plugin which uses TSServer and provides features like code completion, navigation and syntax and semantic error checking.</li>
+      </ul>
+      <h3>Integration with build automation tools</h3>
+      <p>
+        Using plug-ins, TypeScript can be integrated with build automation tools, including Grunt (grunt-ts), Apache Maven (TypeScript Maven Plugin), Gulp (gulp-typescript) and Gradle (TypeScript Gradle Plugin).
+      </p>
+      <h3>Linting tools</h3>
+      <p>
+          TSLint scans TypeScript code for conformance to a set of standards and guidelines. ESLint, a standard JavaScript linter, also provided some support for TypeScript via community plugins. However, ESLint's inability to leverage TypeScript's language services precluded certain forms of semantic linting and program-wide analysis.[46] 
+          In early 2019, the TSLint team announced the linter's deprecation in favor of <code>typescript-eslint</code>, a joint effort of the TSLint, ESLint and TypeScript teams to consolidate linting under the ESLint umbrella for improved performance, community unity and developer accessibility.[47]
+      </p>
+    </section>
+    <section id="References" class="main-section">
+      <header>References</header>
+      <ul>
+        <li>All the documentation in this page is taken from <a href="http://www.typescriptlang.org/">TypeScript</a></li>
+      </ul>
+    </section>
+  </main>
+</body> 
+</html>
